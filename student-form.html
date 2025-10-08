@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Student Expectation Form</title>
+    <link rel="stylesheet" href="student-form.css" />
+</head>
+<body>
+    <header>
+        <h1>📅 Student Expectation Form</h1>
+        <nav>
+            <a href="index.html">🏠 Home</a>
+            <a href="admin-login.html">🔑 Login</a>
+            <a href="logout.php">🔑 Logout</a>
+        </nav>
+    </header>
+
+    <section class="form-section">
+        <h2>Submit Your Expectations</h2>
+        <form id="expectation-form" method="POST" action="submit.php" enctype="multipart/form-data">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+
+            <label for="skills">Skills:</label>
+            <input type="text" id="skills" name="skills" required />
+
+            <label for="cgpa">CGPA:</label>
+            <input type="number" id="cgpa" name="cgpa" step="0.1" required />
+
+            <label for="salary">Expected Salary:</label>
+            <input type="number" id="salary" name="salary" required />
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required />
+
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required />
+
+            <label for="shift">Preferred Shift:</label>
+            <select id="shift" name="shift">
+                <option value="Day">Day</option>
+                <option value="Night">Night</option>
+            </select>
+
+            <label for="attended">Attended:</label>
+            <select id="attended" name="attended">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="work_duration">Work Duration (years):</label>
+            <input type="number" id="work_duration" name="work_duration" required />
+
+            <label for="company">Preferred Company:</label>
+            <input type="text" id="company" name="company" required />
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2025 Placement Cell | Arvind Gavali College of Engineering, Satara</p>
+    </footer>
+</body>
+</html>

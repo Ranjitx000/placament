@@ -1,0 +1,261 @@
+/* --- CSS ENHANCEMENTS ---
+1.  **CSS Variables:** Centralized color palette for easy theme management.
+2.  **Google Fonts:** Imported 'Poppins' for a clean, modern look.
+3.  **Glassmorphism Effect:** The form container now has a semi-transparent, "frosted glass" look.
+4.  **Enhanced Interactivity:** Smoother transitions and more engaging hover/focus effects.
+5.  **Gradient Button:** The primary button is more dynamic with a gradient and improved feedback.
+6.  **Custom Scrollbar:** A styled scrollbar completes the dark theme aesthetic.
+7.  **Improved Responsiveness:** Refined spacing and typography for mobile devices.
+----------------------------- */
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* :root pseudo-class to define CSS variables for the color palette */
+:root {
+    --bg-color: #121212;
+    --surface-color: #1e1e1e;
+    --primary-text-color: #e0e0e0;
+    --secondary-text-color: #a8a8a8;
+    --accent-color: #00bcd4;
+    --accent-color-darker: #00acc1;
+    --border-color: #333;
+    --input-bg-color: #2c2c2c;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --accent-glow-color: rgba(0, 188, 212, 0.4);
+}
+
+/* General Body and Layout */
+body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    /* Adding a subtle gradient for depth */
+    background-image: radial-gradient(circle at 100% 0%, rgba(1, 99, 110, 0.2), transparent 40%);
+    color: var(--primary-text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar for a more integrated look */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--surface-color);
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+
+/* Header Styling */
+header {
+    background-color: rgba(31, 31, 31, 0.8); /* Semi-transparent for a modern feel */
+    backdrop-filter: blur(5px);
+    color: var(--accent-color);
+    padding: 25px 0;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.2em;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px var(--accent-glow-color);
+}
+
+/* Navigation Links */
+nav {
+    margin-top: 15px;
+}
+
+nav a {
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1em;
+    margin: 0 15px;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Underline effect on hover */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+nav a:hover::after {
+    width: 100%;
+    left: 0;
+    background: var(--accent-color);
+}
+
+
+/* Form Section Container - Glassmorphism Effect */
+.form-section {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 40px;
+    /* Frosted glass effect */
+    background-color: rgba(30, 30, 30, 0.7);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-section h2 {
+    color: var(--accent-color);
+    text-align: center;
+    margin-bottom: 35px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+    font-weight: 500;
+    font-size: 1.8em;
+}
+
+
+/* Form Styling - Grid Layout */
+#expectation-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px 35px; /* Increased gap for better spacing */
+}
+
+/* Style for Labels - floating effect hint */
+label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--primary-text-color);
+    font-size: 1em;
+}
+
+/* Style for all Input and Select Elements */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="file"],
+select {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--input-bg-color);
+    color: var(--primary-text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Enhanced focus effect for inputs */
+input:focus, select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 12px var(--accent-glow-color); /* Glowing focus effect */
+    background-color: #333;
+    outline: none;
+    transform: translateY(-2px); /* Subtle lift effect */
+}
+
+/* Specific styling for the Select dropdown arrow */
+select {
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="%23a8a8a8"%3E%3Cpath d="M215.39 99.39l-72 72a8 8 0 01-11.32 0l-72-72a8 8 0 0111.32-11.32L128 154.69l66.06-66.07a8 8 0 0111.33 11.32z"%3E%3C/path%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 20px;
+    padding-right: 40px; /* Space for the custom arrow */
+}
+
+
+/* Submit Button Styling */
+button[type="submit"] {
+    grid-column: 1 / -1; /* Span across both columns */
+    padding: 16px 20px;
+    /* Gradient background */
+    background: linear-gradient(45deg, var(--accent-color), var(--accent-color-darker));
+    color: var(--bg-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: 600; /* Bolder font for emphasis */
+    margin-top: 20px;
+    letter-spacing: 0.8px;
+    box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
+    transition: all 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-3px); /* Lift effect on hover */
+    box-shadow: 0 8px 25px rgba(0, 188, 212, 0.45);
+}
+
+button[type="submit"]:active {
+    transform: scale(0.98) translateY(-1px); /* Press down effect */
+    box-shadow: 0 4px 10px rgba(0, 188, 212, 0.3);
+}
+
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 60px;
+    border-top: 1px solid var(--border-color);
+    color: var(--secondary-text-color);
+    font-size: 0.9em;
+}
+
+
+/* --- Media Queries for Responsiveness --- */
+@media (max-width: 768px) {
+    body {
+        /* Reduce background effect on smaller screens for performance */
+        background-image: none;
+    }
+
+    .form-section {
+        margin: 30px 15px;
+        padding: 25px;
+    }
+
+    #expectation-form {
+        grid-template-columns: 1fr; /* Single column layout on smaller screens */
+        gap: 20px;
+    }
+    
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .form-section h2 {
+        font-size: 1.5em;
+    }
+}

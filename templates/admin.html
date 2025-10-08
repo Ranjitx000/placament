@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Login | Placement Cell</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind & Lucide -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+
+  <body
+    class="min-h-screen bg-neutral-950 text-neutral-100 antialiased tracking-normal flex flex-col"
+    style="font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji'"
+  >
+    <!-- Background decoration -->
+    <div aria-hidden="true" class="fixed inset-0 -z-10 overflow-hidden">
+      <div
+        class="absolute -top-40 -left-24 h-80 w-80 sm:h-96 sm:w-96 rounded-full bg-indigo-600/20 blur-3xl"
+      ></div>
+      <div
+        class="absolute -bottom-40 -right-24 h-[22rem] w-[22rem] sm:h-[28rem] sm:w-[28rem] rounded-full bg-fuchsia-600/20 blur-3xl"
+      ></div>
+      <div
+        class="absolute inset-0 bg-[radial-gradient(1000px_400px_at_50%_-20%,rgba(99,102,241,0.15),transparent)]"
+      ></div>
+    </div>
+
+    <!-- Header -->
+    <header
+      class="sticky top-0 z-30 border-b border-white/10 bg-neutral-950/70 backdrop-blur supports-[backdrop-filter]:bg-neutral-950/50"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap items-center justify-between py-3 sm:py-4">
+          <!-- Logo -->
+          <div class="flex items-center gap-3">
+            <span
+              class="inline-flex h-9 w-9 items-center justify-center rounded-md bg-indigo-600/20 text-indigo-300 ring-1 ring-inset ring-indigo-500/30"
+            >
+              <i data-lucide="shield-keyhole" class="w-5 h-5"></i>
+            </span>
+            <p class="text-base sm:text-lg font-medium text-white/90">
+              Placement Cell
+            </p>
+          </div>
+
+          <!-- Nav -->
+          <nav
+            class="flex flex-wrap items-center gap-2 mt-3 sm:mt-0 sm:gap-3 justify-center"
+          >
+            <a
+              href="/"
+              class="inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-3 py-2 text-sm font-medium text-white/90 hover:bg-white/10 hover:border-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/60 active:scale-[0.98] transition"
+            >
+              <i data-lucide="home" class="w-4 h-4"></i>
+              <span>Home</span>
+            </a>
+            <a
+              href="/contact"
+              class="inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-3 py-2 text-sm font-medium text-white/90 hover:bg-white/10 hover:border-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/60 active:scale-[0.98] transition"
+            >
+              <i data-lucide="phone" class="w-4 h-4"></i>
+              <span>Contact</span>
+            </a>
+            <a
+              href="/student-form"
+              class="inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-3 py-2 text-sm font-medium text-white/90 hover:bg-white/10 hover:border-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/60 active:scale-[0.98] transition"
+            >
+              <i data-lucide="file-text" class="w-4 h-4"></i>
+              <span>Student Form</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="flex-grow">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <!-- Page Title -->
+        <section class="mb-8 text-center sm:text-left">
+          <div class="flex items-center justify-center sm:justify-start gap-2">
+            <i data-lucide="key-round" class="w-5 h-5 text-indigo-300"></i>
+            <h1
+              class="text-2xl sm:text-3xl font-semibold tracking-tight text-white"
+            >
+              Admin Login
+            </h1>
+          </div>
+        </section>
+
+        <!-- Alert (hidden by default if empty) -->
+        <div
+          class="hidden mb-6 rounded-lg border border-rose-500/30 bg-rose-500/10 px-4 py-3 text-sm text-rose-200 ring-1 ring-inset ring-rose-500/20"
+          role="alert"
+        ></div>
+
+        <!-- Login Form -->
+        <section
+          class="login-form max-w-md mx-auto bg-neutral-900/50 p-6 sm:p-8 rounded-xl shadow-lg border border-white/10"
+        >
+          <h2
+            class="text-xl sm:text-2xl font-bold mb-6 text-center text-white"
+          >
+            Login as Admin
+          </h2>
+
+          <!-- Flask Flash Messages -->
+          {% with messages = get_flashed_messages(with_categories=true) %} {% if
+          messages %} {% for category, msg in messages %} {% if category ==
+          'success' %}
+          <div
+            class="mb-6 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-200 ring-1 ring-inset ring-emerald-500/20"
+          >
+            {{ msg }}
+          </div>
+          {% else %}
+          <div
+            class="mb-6 rounded-lg border border-rose-500/30 bg-rose-500/10 px-4 py-3 text-sm text-rose-200 ring-1 ring-inset ring-rose-500/20"
+          >
+            {{ msg }}
+          </div>
+          {% endif %} {% endfor %} {% endif %} {% endwith %}
+
+          <form method="POST" action="/admin" class="flex flex-col space-y-4">
+            <div class="flex flex-col">
+              <label
+                for="username"
+                class="mb-1 text-sm text-gray-300 font-medium"
+                >Username</label
+              >
+              <input
+                type="text"
+                name="username"
+                id="username"
+                class="rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-white focus:border-indigo-500 focus:ring-indigo-500 text-sm sm:text-base"
+                placeholder="Enter your username"
+                required
+              />
+            </div>
+
+            <div class="flex flex-col">
+              <label
+                for="password"
+                class="mb-1 text-sm text-gray-300 font-medium"
+                >Password</label
+              >
+              <input
+                type="password"
+                name="password"
+                id="password"
+                class="rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-white focus:border-indigo-500 focus:ring-indigo-500 text-sm sm:text-base"
+                placeholder="Enter your password"
+                required
+              />
+            </div>
+
+            <input
+              type="submit"
+              value="Login"
+              class="cursor-pointer rounded-lg bg-indigo-600 px-4 py-2 font-semibold text-white hover:bg-indigo-700 transition text-sm sm:text-base"
+            />
+          </form>
+        </section>
+
+        <!-- Footer -->
+        <footer
+          class="text-center mt-12 pt-6 border-t border-white/10 text-white/60 text-xs sm:text-sm"
+        >
+          © 2025 Placement Cell | Arvind Gavali College of Engineering, Satara
+        </footer>
+      </div>
+    </main>
+
+    <!-- Init icons -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (window.lucide && lucide.createIcons) {
+          lucide.createIcons({
+            attrs: { "stroke-width": 1.5 },
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
+

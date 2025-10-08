@@ -1,0 +1,109 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: linear-gradient(120deg, #1a1a2e, #16213e);
+    color: #fff;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Section */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #0f3460;
+    color: white;
+    font-size: 24px;
+    border-bottom: 5px solid #1a1a2e;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background: #1b1b2f;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.button {
+    display: inline-block;
+    background-color: #0f3460;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.button:hover {
+    background-color: #1a1a2e;
+}
+
+/* Stats Section */
+.stats {
+    padding: 40px 20px;
+}
+
+/* Card Layout */
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: nowrap;
+    max-width: 1000px;
+    margin: auto;
+    overflow-x: auto;
+    padding: 10px;
+}
+
+.card {
+    background: linear-gradient(145deg, #23395d, #1b1b2f);
+    color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    width: 250px;
+    min-height: 150px;
+    text-align: center;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+}
+
+/* Footer */
+footer {
+    background: #0f3460;
+    color: white;
+    padding: 10px 0;
+    position: relative;
+    margin-top: 20px;
+    border-top: 5px solid #1a1a2e;
+}

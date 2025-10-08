@@ -1,0 +1,17 @@
+college_name,name,ssc_percentage,hsc_percentage,prev_sem_result,academic_performance,extra_curricular_activity,communication,branch,year,skills,cgpa,expected_salary,date,projects,internship,certifications,company,resume,placed,placement_probability
+Arvind Gavali College,Alice,85,88,80,Good,Yes,Excellent,Computer Science,3,Python;SQL;Machine Learning,8.5,500000,2025-06-10,Project A;Project B,Internship X;Internship Y,Cert1;Cert2,Google,resume_alice.pdf,Yes,0.85
+Arvind Gavali College,Bob,78,82,75,Average,No,Good,Information Technology,3,Java;HTML;CSS,7.8,400000,2025-06-12,Project C,Internship Z,Cert3,Microsoft,resume_bob.pdf,No,0.40
+Arvind Gavali College,Charlie,90,91,85,Excellent,Yes,Excellent,Electronics,3,C;C++;Python,9.1,600000,2025-06-15,Project D;Project E,Internship W,Cert4;Cert5,Amazon,resume_charlie.pdf,Yes,0.92
+Arvind Gavali College,Diana,82,85,78,Good,Yes,Very Good,Mechanical,3,AutoCAD;SolidWorks;MATLAB,8.0,450000,2025-06-18,Project F,Internship V,Cert6,Tesla,resume_diana.pdf,No,0.55
+Arvind Gavali College,Ethan,88,90,82,Very Good,Yes,Excellent,Civil,3,AutoCAD;STAAD Pro;Python,8.7,550000,2025-06-20,Project G;Project H,Internship U,Cert7;Cert8,L&T,resume_ethan.pdf,Yes,0.78
+Arvind Gavali College,Fiona,76,80,70,Average,No,Good,Computer Science,3,Java;C#;SQL,7.5,380000,2025-06-22,Project I,Internship T,Cert9,Dell,resume_fiona.pdf,No,0.35
+Arvind Gavali College,George,92,93,88,Excellent,Yes,Excellent,Information Technology,3,Python;JavaScript;React,9.3,620000,2025-06-25,Project J;Project K,Internship S,Cert10;Cert11,Facebook,resume_george.pdf,Yes,0.95
+Arvind Gavali College,Hannah,81,84,77,Good,Yes,Very Good,Electronics,3,C;C++;MATLAB,8.2,470000,2025-06-28,Project L,Internship R,Cert12,Intel,resume_hannah.pdf,No,0.60
+Arvind Gavali College,Ian,87,89,83,Very Good,Yes,Excellent,Mechanical,3,AutoCAD;SolidWorks;Python,8.6,530000,2025-06-30,Project M;Project N,Internship Q,Cert13;Cert14,Boeing,resume_ian.pdf,Yes,0.80
+Arvind Gavali College,Jane,79,83,76,Average,No,Good,Civil,3,AutoCAD;STAAD Pro;Java,7.9,420000,2025-07-02,Project O,Internship P,Cert15,Siemens,resume_jane.pdf,No,0.45
+Arvind Gavali College,Julia,87,89,83,Very Good,Yes,Excellent,Civil,3,AutoCAD;STAAD Pro;Python,8.6,540000,2025-06-26,Project N;Project O,Internship P,Cert14;Cert15,L&T,resume_julia.pdf,Yes,0.75
+Arvind Gavali College,Kyle,79,81,74,Average,No,Good,Computer Science,3,Java;C++;SQL,7.9,430000,2025-06-27,Project P,Internship O,Cert16,Google,resume_kyle.pdf,No,0.42
+Arvind Gavali College,Linda,91,93,88,Excellent,Yes,Excellent,Information Technology,3,Python;HTML;CSS,9.2,650000,2025-06-28,Project Q;Project R,Internship N,Cert17;Cert18,Microsoft,resume_linda.pdf,Yes,0.95
+Arvind Gavali College,Michael,84,86,80,Good,Yes,Very Good,Electronics,3,C;C++;MATLAB,8.4,500000,2025-06-29,Project S,Internship M,Cert19,Amazon,resume_michael.pdf,Yes,0.82
+Arvind Gavali College,Nina,78,83,76,Average,No,Good,Mechanical,3,SolidWorks;AutoCAD,7.8,440000,2025-06-30,Project T,Internship L,Cert20,Tesla,resume_nina.pdf,No,0.48
+Arvind Gavali College,Owen,88,90,84,Very Good,Yes,Excellent,Civil,3,AutoCAD;STAAD Pro;Python,8.8,560000,2025-07-01,Project U;Project V,Internship K,Cert21;Cert22,L&T,resume_owen.pdf,Yes,0.78

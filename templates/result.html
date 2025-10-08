@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Placement Prediction Result</title>
+
+    <!-- Fonts & Tailwind -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+
+  <body
+    class="min-h-screen bg-neutral-950 text-neutral-100 antialiased tracking-normal"
+    style="font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji'"
+  >
+    <!-- Background gradient -->
+    <div aria-hidden="true" class="fixed inset-0 -z-10 overflow-hidden">
+      <div
+        class="absolute -top-40 -left-24 h-80 w-80 sm:h-96 sm:w-96 rounded-full bg-indigo-600/20 blur-3xl"
+      ></div>
+      <div
+        class="absolute -bottom-40 -right-24 h-[22rem] w-[22rem] sm:h-[28rem] sm:w-[28rem] rounded-full bg-fuchsia-600/20 blur-3xl"
+      ></div>
+      <div
+        class="absolute inset-0 bg-[radial-gradient(1200px_500px_at_50%_-20%,rgba(99,102,241,0.15),transparent)]"
+      ></div>
+    </div>
+
+    <!-- Header -->
+    <header
+      class="sticky top-0 z-30 border-b border-white/10 bg-neutral-950/70 backdrop-blur supports-[backdrop-filter]:bg-neutral-950/50"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between py-4">
+          <div class="flex items-center gap-3">
+            <span
+              class="inline-flex h-9 w-9 items-center justify-center rounded-md bg-indigo-600/20 text-indigo-300 ring-1 ring-inset ring-indigo-500/30"
+            >
+              <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+            </span>
+            <p class="text-base sm:text-lg font-medium text-white/90">
+              Placement Prediction Result
+            </p>
+          </div>
+          <nav class="flex items-center gap-2 sm:gap-3">
+            <a
+              href="/"
+              class="inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-3.5 py-2 text-sm font-medium text-white/90 hover:bg-white/10 hover:border-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/60 active:scale-[0.98] transition"
+            >
+              <i data-lucide="home" class="w-4 h-4"></i>
+              <span>Home</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="py-10 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+      <!-- Page Title -->
+      <section class="mb-8 text-center">
+        <h1
+          class="text-2xl sm:text-3xl font-semibold text-white flex items-center justify-center gap-2"
+        >
+          <i data-lucide="pie-chart" class="w-6 h-6 text-indigo-400"></i>
+          Prediction Summary
+        </h1>
+      </section>
+
+      <!-- Result Card -->
+      <section
+        class="bg-neutral-900/50 border border-white/10 rounded-2xl p-6 sm:p-8 shadow-xl backdrop-blur-md"
+      >
+        <p class="mb-2 text-sm text-gray-400">
+          <strong class="text-gray-200">Applied Company:</strong>
+          {{ company|default('') }}
+        </p>
+
+        <p class="mb-6 text-sm text-gray-400">
+          <strong class="text-gray-200">Placement Probability:</strong>
+          {% if prediction|default(0) < 40 %}
+          🔴
+          <span class="text-rose-400 font-medium"
+            >{{ prediction|default(0) }}% (Low chance)</span
+          >
+          {% elif prediction|default(0) < 70 %}
+          🟡
+          <span class="text-yellow-400 font-medium"
+            >{{ prediction|default(0) }}% (Medium chance)</span
+          >
+          {% else %}
+          🟢
+          <span class="text-emerald-400 font-medium"
+            >{{ prediction|default(0) }}% (High chance)</span
+          >
+          {% endif %}
+        </p>
+
+        <!-- Progress bar -->
+        <div class="w-full h-4 bg-gray-800 rounded-full overflow-hidden mb-6">
+          <div
+            class="h-full transition-all duration-500 ease-out text-center text-xs font-semibold text-white flex items-center justify-center
+              {% if prediction|default(0) < 40 %}
+                bg-rose-600
+              {% elif prediction|default(0) < 70 %}
+                bg-yellow-500
+              {% else %}
+                bg-emerald-500
+              {% endif %}"
+            style="width: {{ prediction|default(0) }}%;"
+          >
+            {{ prediction|default(0) }}%
+          </div>
+        </div>
+
+        <!-- Status line -->
+        {% if prediction|default(0) >= 50 %}
+        <div
+          class="rounded-md bg-emerald-500/10 border border-emerald-500/30 text-emerald-200 px-4 py-3 mb-6 text-sm"
+        >
+          ✅ Placement Status: <strong>Likely Placed</strong>
+        </div>
+        {% else %}
+        <div
+          class="rounded-md bg-rose-500/10 border border-rose-500/30 text-rose-200 px-4 py-3 mb-6 text-sm"
+        >
+          ❌ Placement Status: <strong>Unlikely Placed</strong>
+        </div>
+        {% endif %}
+
+        <!-- Academic Overview -->
+        <h3
+          class="text-xl font-semibold text-indigo-400 mb-3 flex items-center gap-2"
+        >
+          <i data-lucide="graduation-cap" class="w-5 h-5"></i> Academic Overview
+        </h3>
+        <div
+          class="bg-neutral-800/70 border border-white/10 rounded-lg p-4 mb-6 text-sm space-y-1"
+        >
+          <p><strong>SSC Percentage:</strong> {{ ssc_percentage|default('') }}%</p>
+          <p><strong>HSC Percentage:</strong> {{ hsc_percentage|default('') }}%</p>
+          <p>
+            <strong>Previous Semester Result:</strong>
+            {{ prev_sem_result|default('') }}%
+          </p>
+          <p>
+            <strong>Academic Performance:</strong>
+            {{ academic_performance|default('') }}
+          </p>
+          <p>
+            <strong>Extra Curricular Activity:</strong>
+            {{ extra_curricular_activity|default('') }}
+          </p>
+          <p>
+            <strong>Communication Skills:</strong>
+            {{ communication|default('') }}
+          </p>
+        </div>
+
+        <!-- Strengths -->
+        <h3
+          class="text-xl font-semibold text-indigo-400 mb-2 flex items-center gap-2"
+        >
+          <i data-lucide="check-circle" class="w-5 h-5"></i> Your Strengths
+        </h3>
+        <ul class="list-disc list-inside mb-6 text-sm text-gray-300 space-y-1">
+          {% for skill in extracted_skills|default([]) %}
+          <li>{{ skill }}</li>
+          {% else %}
+          <li>No strong skills detected in resume.</li>
+          {% endfor %}
+        </ul>
+
+        <!-- Skill Gaps -->
+        <h3
+          class="text-xl font-semibold text-indigo-400 mb-2 flex items-center gap-2"
+        >
+          <i data-lucide="alert-triangle" class="w-5 h-5"></i> Skill Gaps
+          Identified
+        </h3>
+        <ul class="list-disc list-inside mb-6 text-sm text-gray-300 space-y-1">
+          {% for skill in missing_skills|default([]) %}
+          <li>{{ skill }}</li>
+          {% else %}
+          <li>All key skills are present! 🎉</li>
+          {% endfor %}
+        </ul>
+
+        <!-- Recommendations -->
+        <h3
+          class="text-xl font-semibold text-indigo-400 mb-2 flex items-center gap-2"
+        >
+          <i data-lucide="lightbulb" class="w-5 h-5"></i> Recommendations
+        </h3>
+        <ul class="list-disc list-inside mb-6 text-sm text-gray-300 space-y-1">
+          {% if communication == 'Poor' or communication == 'Average' %}
+          <li>
+            🎯 Improve communication skills via mock interviews and
+            presentations.
+          </li>
+          {% endif %}
+          {% if extra_curricular_activity == 'No' %}
+          <li>
+            🤝 Participate in group projects or events to enhance teamwork
+            skills.
+          </li>
+          {% endif %}
+          <li>
+            📜 Complete certifications in AI, Cloud, or Data Analytics to
+            strengthen your profile.
+          </li>
+          <li>
+            📈 Maintain consistency in academic performance to improve placement
+            probability.
+          </li>
+        </ul>
+
+        <!-- Company Suggestions -->
+        <h3
+          class="text-xl font-semibold text-indigo-400 mb-2 flex items-center gap-2"
+        >
+          <i data-lucide="building" class="w-5 h-5"></i> Company Suggestions
+        </h3>
+        <ul class="list-disc list-inside text-sm text-gray-300 space-y-1">
+          <li>✅ High Fit: TCS, Infosys (good match with current skills)</li>
+          <li>⚠️ Medium Fit: Wipro (needs some cloud knowledge)</li>
+          <li>❌ Low Fit: Accenture (requires strong teamwork & communication)</li>
+        </ul>
+      </section>
+
+      <!-- Footer -->
+      <footer
+        class="text-center mt-12 pt-6 border-t border-white/10 text-white/60 text-xs sm:text-sm"
+      >
+        © 2025 Placement Cell | Arvind Gavali College of Engineering, Satara
+      </footer>
+    </main>
+
+    <!-- Init Lucide -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (window.lucide && lucide.createIcons) {
+          lucide.createIcons({
+            attrs: { "stroke-width": 1.5 },
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
+

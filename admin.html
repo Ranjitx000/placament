@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login -  Cell</title>
+   <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <header>
+        <h1>🔑 Admin Login</h1> 
+        <nav>
+            <a href="/">🏠 Home</a>
+            <a href="contact.html">📞 Contact</a>
+            <a href="student-form.html">📝 Student Form</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="login-container">
+            <div class="lock-icon">🔐</div>
+            <h2>Login as Admin</h2>
+            <p>Enter your credentials to access the admin panel</p>
+            
+            <form action="/admin" method="post">
+                <div class="input-group">
+                    <span class="input-icon">👤</span>
+                    <input type="text" name="username" id="username" placeholder="Username" required>
+                </div>
+                
+                <div class="input-group">
+                    <span class="input-icon">🔑</span>
+                    <input type="password" name="password" id="password" placeholder="Password" required>
+                </div>
+                
+                <input type="submit" value="Login">
+            </form>
+
+            <!-- Flash messages for wrong login -->
+           
+               
+            
+
+            <div class="security-note">
+                Your login is secured with encryption
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Placement Cell | Arvind Gavali College of Engineering, Satara</p>
+    </footer>
+</body>
+</html>

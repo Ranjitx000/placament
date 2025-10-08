@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Global Software Company Directory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="min-h-screen bg-neutral-950 text-neutral-100 antialiased tracking-normal" style="font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji'">
+    <!-- Background decoration -->
+    <div aria-hidden="true" class="fixed inset-0 -z-10 overflow-hidden">
+      <div class="absolute -top-40 -left-24 h-96 w-96 rounded-full bg-indigo-600/20 blur-3xl"></div>
+      <div class="absolute -bottom-40 -right-24 h-[28rem] w-[28rem] rounded-full bg-fuchsia-600/20 blur-3xl"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(1200px_500px_at_50%_-20%,rgba(99,102,241,0.15),transparent)]"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-30 border-b border-white/10 bg-neutral-950/70 backdrop-blur supports-[backdrop-filter]:bg-neutral-950/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between py-4">
+          <h1 class="text-xl sm:text-2xl font-semibold tracking-tight text-white/90 flex items-center gap-3">
+            <span class="inline-flex h-9 w-9 items-center justify-center rounded-md bg-indigo-600/20 text-indigo-300 ring-1 ring-inset ring-indigo-500/30">
+              <i data-lucide="globe-2" class="w-5 h-5"></i>
+            </span>
+            <span>Global Software Leaders Directory</span>
+          </h1>
+
+          <nav class="flex items-center gap-2 sm:gap-3">
+            <a href="index.html" class="inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-3.5 py-2 text-sm font-medium text-white/90 hover:bg-white/10 hover:text-white hover:border-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/60 active:scale-[0.99] transition">
+              <i data-lucide="home" class="w-4 h-4"></i>
+              <span>Home</span>
+            </a>
+            <a href="admin-login.html" class="inline-flex items-center gap-2 rounded-md border border-indigo-500/30 bg-indigo-500/10 px-3.5 py-2 text-sm font-medium text-indigo-200 hover:bg-indigo-500/20 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/60 active:scale-[0.99] transition">
+              <i data-lucide="key-round" class="w-4 h-4"></i>
+              <span>Login</span>
+            </a>
+            <a href="logout.php" class="inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-3.5 py-2 text-sm font-medium text-white/90 hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-500/60 active:scale-[0.99] transition">
+              <i data-lucide="log-out" class="w-4 h-4"></i>
+              <span>Logout</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <!-- Page Intro -->
+        <section class="mb-8">
+          <div class="max-w-3xl">
+            <div class="flex items-center gap-2">
+              <i data-lucide="list-tree" class="w-5 h-5 text-indigo-300"></i>
+              <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-white">Explore Global Companies</h2>
+            </div>
+            <p class="mt-2 text-sm text-white/70">
+              Discover major global companies, their core focus, and their official websites, presented in a clean directory format.
+            </p>
+          </div>
+        </section>
+
+        <!-- Company Grid -->
+        <section>
+          <div id="company-grid" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <!-- Card 1: Microsoft -->
+            <div class="min-h-[280px] rounded-xl border border-white/10 bg-white/[0.04] p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] flex flex-col justify-between hover:bg-white/[0.06] transition">
+              <div>
+                <div class="flex justify-between items-start mb-3">
+                  <h3 class="text-lg font-semibold tracking-tight text-white/90">Microsoft</h3>
+                  <span class="px-2.5 py-1 rounded-full text-[11px] font-medium bg-blue-500/15 text-blue-200 ring-1 ring-inset ring-blue-500/30">Cloud/OS</span>
+                </div>
+                <span class="text-xs text-white/60 block mb-4">Headquarters: Redmond, WA, US</span>
+                <p class="text-sm text-white/70">
+                  A multinational technology corporation known for its software products like Windows, Office Suite, and its powerful Azure cloud computing platform.
+                </p>
+              </div>
+              <a href="https://www.microsoft.com/" target="_blank" class="mt-6 inline-flex items-center justify-center gap-2 rounded-md border border-indigo-500/30 bg-indigo-600/80 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/60 active:scale-[0.99] transition">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+                <span>Explore Site</span>
+              </a>
+            </div>
+
+            <!-- Card 2: Oracle -->
+            <div class="min-h-[280px] rounded-xl border border-white/10 bg-white/[0.04] p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] flex flex-col justify-between hover:bg-white/[0.06] transition">
+              <div>
+                <div class="flex justify-between items-start mb-3">
+                  <h3 class="text-lg font-semibold tracking-tight text-white/90">Oracle</h3>
+                  <span class="px-2.5 py-1 rounded-full text-[11px] font-medium bg-rose-500/15 text-rose-200 ring-1 ring-inset ring-rose-500/30">Database/ERP</span>
+                </div>
+                <span class="text-xs text-white/60 block mb-4">Headquarters: Austin, TX, US</span>
+                <p class="text-sm text-white/70">
+                  Specializes in database software and technology, cloud engineered systems, and enterprise software products like ERP and CRM solutions.
+                </p>
+              </div>
+              <a href="https://www.oracle.com/" target="_blank" class="mt-6 inline-flex items-center justify-center gap-2 rounded-md border border-indigo-500/30 bg-indigo-600/80 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/60 active:scale-[0.99] transition">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+                <span>Explore Site</span>
+              </a>
+            </div>
+
+            <!-- Card 3: Salesforce -->
+            <div class="min-h-[280px] rounded-xl border border-white/10 bg-white/[0.04] p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] flex flex-col justify-between hover:bg-white/[0.06] transition">
+              <div>
+                <div class="flex justify-between items-start mb-3">
+                  <h3 class="text-lg font-semibold tracking-tight text-white/90">Salesforce</h3>
+                  <span class="px-2.5 py-1 rounded-full text-[11px] font-medium bg-emerald-500/15 text-emerald-200 ring-1 ring-inset ring-emerald-500/30">CRM/SaaS</span>
+                </div>
+                <span class="text-xs text-white/60 block mb-4">Headquarters: San Francisco, CA, US</span>
+                <p class="text-sm text-white/70">
+                  A leading provider of Customer Relationship Management (CRM) software delivered via the cloud, focusing on sales, service, marketing, and commerce.
+                </p>
+              </div>
+              <a href="https://www.salesforce.com/" target="_blank" class="mt-6 inline-flex items-center justify-center gap-2 rounded-md border border-indigo-500/30 bg-indigo-600/80 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/60 active:scale-[0.99] transition">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+                <span>Explore Site</span>
+              </a>
+            </div>
+
+            <!-- Card 4: SAP -->
+            <div class="min-h-[280px] rounded-xl border border-white/10 bg-white/[0.04] p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] flex flex-col justify-between hover:bg-white/[0.06] transition">
+              <div>
+                <div class="flex justify-between items-start mb-3">
+                  <h3 class="text-lg font-semibold tracking-tight text-white/90">SAP</h3>
+                  <span class="px-2.5 py-1 rounded-full text-[11px] font-medium bg-yellow-500/15 text-yellow-200 ring-1 ring-inset ring-yellow-500/30">ERP/Business</span>
+                </div>
+                <span class="text-xs text-white/60 block mb-4">Headquarters: Walldorf, Germany</span>
+                <p class="text-sm text-white/70">
+                  A European multinational software corporation that makes enterprise software to manage business operations and customer relations (ERP systems).
+                </p>
+              </div>
+              <a href="https://www.sap.com/" target="_blank" class="mt-6 inline-flex items-center justify-center gap-2 rounded-md border border-indigo-500/30 bg-indigo-600/80 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/60 active:scale-[0.99] transition">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+                <span>Explore Site</span>
+              </a>
+            </div>
+
+            <!-- Card 5: Adobe -->
+            <div class="min-h-[280px] rounded-xl border border-white/10 bg-white/[0.04] p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] flex flex-col justify-between hover:bg-white/[0.06] transition">
+              <div>
+                <div class="flex justify-between items-start mb-3">
+                  <h3 class="text-lg font-semibold tracking-tight text-white/90">Adobe</h3>
+                  <span class="px-2.5 py-1 rounded-full text-[11px] font-medium bg-purple-500/15 text-purple-200 ring-1 ring-inset ring-purple-500/30">Creative Suite</span>
+                </div>
+                <span class="text-xs text-white/60 block mb-4">Headquarters: San Jose, CA, US</span>
+                <p class="text-sm text-white/70">
+                  Specializes in software for multimedia and creativity products (like Photoshop, Illustrator, and Premiere Pro) and digital marketing tools.
+                </p>
+              </div>
+              <a href="https://www.adobe.com/" target="_blank" class="mt-6 inline-flex items-center justify-center gap-2 rounded-md border border-indigo-500/30 bg-indigo-600/80 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/60 active:scale-[0.99] transition">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+                <span>Explore Site</span>
+              </a>
+            </div>
+
+            <!-- Card 6: IBM -->
+            <div class="min-h-[280px] rounded-xl border border-white/10 bg-white/[0.04] p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] flex flex-col justify-between hover:bg-white/[0.06] transition">
+              <div>
+                <div class="flex justify-between items-start mb-3">
+                  <h3 class="text-lg font-semibold tracking-tight text-white/90">IBM</h3>
+                  <span class="px-2.5 py-1 rounded-full text-[11px] font-medium bg-indigo-500/15 text-indigo-200 ring-1 ring-inset ring-indigo-500/30">AI/Consulting</span>
+                </div>
+                <span class="text-xs text-white/60 block mb-4">Headquarters: Armonk, NY, US</span>
+                <p class="text-sm text-white/70">
+                  The International Business Machines Corporation focuses on IT consulting, cloud infrastructure (IBM Cloud), and software for AI and quantum computing.
+                </p>
+              </div>
+              <a href="https://www.ibm.com/" target="_blank" class="mt-6 inline-flex items-center justify-center gap-2 rounded-md border border-indigo-500/30 bg-indigo-600/80 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/60 active:scale-[0.99] transition">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+                <span>Explore Site</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center mt-12 pt-6 border-t border-white/10 text-white/60 text-sm">
+          Data sourced from public company reports and financial news. Links are to the official company homepages.
+        </footer>
+      </div>
+    </main>
+
+    <!-- Init icons -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (window.lucide && lucide.createIcons) {
+          lucide.createIcons({
+            attrs: { "stroke-width": 1.5 }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

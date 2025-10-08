@@ -1,0 +1,407 @@
+:root {
+  /* Palette */
+  --bg: #0b0c10;
+  --surface: #121318;
+  --surface-2: #171923;
+  --text: #e6e8ee;
+  --muted: #a2a7b3;
+  --primary: #6366f1; /* indigo */
+  --accent: #22d3ee;  /* cyan */
+  --success: #10b981; /* green */
+  --danger: #ef4444;  /* red */
+
+  /* Effects */
+  --ring: 0 0 0 3px color-mix(in oklab, var(--primary) 30%, transparent);
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.35), 0 6px 16px rgba(2,6,23,0.35);
+  --shadow-2: 0 2px 8px rgba(0,0,0,0.4), 0 10px 24px rgba(2,6,23,0.45);
+
+  /* Layout */
+  --radius: 12px;
+  --radius-sm: 10px;
+  --radius-lg: 16px;
+
+  /* Spacing scale (4px baseline) */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* Typography */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  /* Recommended optional Google Font: Inter (400,500,600) */
+  --fz-root: 16px;
+  --lh: 1.55;
+  --fz-1: clamp(20px, 4.6vw, 28px);
+  --fz-2: clamp(16px, 2.6vw, 20px);
+  --fz-3: 15px;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+
+  /* Controls */
+  --ctrl-height: 44px; /* accessible tap target */
+  --ctrl-pad-x: 14px;
+  --ctrl-pad-y: 10px;
+
+  /* Container */
+  --container: 1100px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0a0b0f;
+    --surface: #101216;
+    --surface-2: #141824;
+    --text: #eef1f6;
+    --muted: #a9afbd;
+    --primary: #7c83ff;
+    --accent: #4de2ff;
+    --danger: #ff5a67;
+    --ring: 0 0 0 3px color-mix(in oklab, var(--primary) 40%, transparent);
+  }
+}
+
+/* ------------------------------
+   Base reset / normalize
+--------------------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  font-size: var(--fz-root);
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 500px at 50% -10%, color-mix(in oklab, var(--primary) 12%, transparent), transparent),
+    radial-gradient(900px 420px at 110% 10%, color-mix(in oklab, var(--accent) 10%, transparent), transparent),
+    var(--bg);
+  font-family: var(--font-sans);
+  line-height: var(--lh);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100svh;
+}
+
+/* container utility used by existing markup */
+.container {
+  max-width: min(92vw, var(--container));
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 28px);
+}
+
+/* Basic spacing helpers present in markup */
+.mt-5 { margin-top: var(--space-12); }
+.mt-3 { margin-top: var(--space-6); }
+
+/* Images and media */
+img, svg, video, canvas { max-width: 100%; height: auto; display: block; }
+
+/* Links */
+a { color: var(--text); text-decoration: none; }
+a:hover { color: color-mix(in oklab, var(--text) 88%, var(--primary)); }
+
+/* Selection */
+::selection { background: color-mix(in oklab, var(--primary) 30%, transparent); color: var(--text); }
+
+/* ------------------------------
+   Typography
+--------------------------------- */
+h1, h2, h3 {
+  margin: 0 0 var(--space-3);
+  letter-spacing: -0.02em; /* tracking-tight */
+  font-weight: var(--fw-semibold); /* one step thinner than bold */
+}
+
+h1 { font-size: var(--fz-1); }
+h2 { font-size: clamp(18px, 3.2vw, 22px); }
+p { margin: 0 0 var(--space-3); color: var(--muted); font-size: var(--fz-3); }
+
+/* ------------------------------
+   Layout: Header / Nav
+--------------------------------- */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in oklab, var(--surface) 86%, transparent);
+  backdrop-filter: saturate(120%) blur(10px);
+  border: 1px solid color-mix(in oklab, var(--text) 12%, transparent);
+  box-shadow: var(--shadow-1);
+  display: flex;
+  gap: var(--space-2);
+  padding: 10px;
+  border-radius: var(--radius);
+  margin: var(--space-6) auto var(--space-6);
+  max-width: min(96vw, var(--container));
+}
+
+nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: var(--text);
+  border: 1px solid transparent;
+  background: transparent;
+  transition: background 180ms ease, transform 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+nav a:hover {
+  background: color-mix(in oklab, var(--primary) 12%, transparent);
+  border-color: color-mix(in oklab, var(--primary) 30%, transparent);
+  transform: translateY(-1px);
+}
+nav a:active { transform: translateY(0); }
+
+/* ------------------------------
+   Card: Login Section
+--------------------------------- */
+.login-form {
+  background: linear-gradient(180deg, color-mix(in oklab, var(--surface) 92%, transparent), var(--surface));
+  border: 1px solid color-mix(in oklab, var(--text) 12%, transparent);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-2);
+  padding: clamp(18px, 4vw, 36px);
+  margin: var(--space-8) auto;
+  max-width: 540px;
+}
+
+.login-form h2 {
+  margin-bottom: var(--space-4);
+  color: var(--text);
+}
+
+/* ------------------------------
+   Alerts
+--------------------------------- */
+.alert {
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  margin: var(--space-4) auto 0;
+  max-width: 720px;
+  border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+  background: color-mix(in oklab, var(--surface) 86%, transparent);
+  box-shadow: var(--shadow-1);
+  font-size: var(--fz-3);
+}
+
+.alert:empty { display: none; } /* hide empty alert gracefully */
+
+.alert-danger {
+  border-left: 4px solid var(--danger);
+  background: color-mix(in oklab, var(--danger) 10%, var(--surface));
+  color: color-mix(in oklab, var(--danger) 85%, white);
+}
+
+/* ------------------------------
+   Forms and controls
+--------------------------------- */
+form {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.login-form form {
+  margin-top: var(--space-3);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="date"],
+input[type="time"],
+select,
+textarea {
+  width: 100%;
+  min-height: var(--ctrl-height);
+  padding: var(--ctrl-pad-y) var(--ctrl-pad-x);
+  font: inherit;
+  color: var(--text);
+  border-radius: var(--radius);
+  border: 1px solid color-mix(in oklab, var(--text) 12%, transparent);
+  background: color-mix(in oklab, var(--surface-2) 92%, transparent);
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+input::placeholder,
+textarea::placeholder { color: color-mix(in oklab, var(--muted) 80%, transparent); }
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: color-mix(in oklab, var(--primary) 40%, transparent);
+  box-shadow: var(--ring);
+}
+
+input[disabled],
+select[disabled],
+textarea[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Inline validation helper if server injects error styles later */
+input[aria-invalid="true"],
+select[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--danger) 30%, transparent);
+}
+
+/* ------------------------------
+   Buttons
+--------------------------------- */
+button,
+input[type="submit"],
+input[type="button"] {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 1px solid transparent;
+  background: linear-gradient(180deg, color-mix(in oklab, var(--primary) 86%, white 0%), var(--primary));
+  color: white;
+  font-weight: var(--fw-medium);
+  min-height: var(--ctrl-height);
+  padding: var(--ctrl-pad-y) calc(var(--ctrl-pad-x) + 4px);
+  border-radius: var(--radius);
+  cursor: pointer;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, var(--shadow-1);
+  transition: transform 160ms ease, filter 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+
+button:active,
+input[type="submit"]:active,
+input[type="button"]:active {
+  transform: translateY(0);
+}
+
+button:focus-visible,
+input[type="submit"]:focus-visible,
+input[type="button"]:focus-visible {
+  outline: 2px solid transparent;
+  box-shadow: var(--ring);
+}
+
+button[disabled],
+input[type="submit"][disabled] {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Secondary and ghost variants via attribute hooks if needed */
+button[data-variant="secondary"] {
+  background: transparent;
+  color: var(--text);
+  border-color: color-mix(in oklab, var(--text) 18%, transparent);
+}
+button[data-variant="secondary"]:hover {
+  background: color-mix(in oklab, var(--text) 10%, transparent);
+}
+
+button[data-variant="ghost"] {
+  background: transparent;
+  color: var(--text);
+  border-color: transparent;
+}
+button[data-variant="ghost"]:hover {
+  background: color-mix(in oklab, var(--primary) 10%, transparent);
+}
+
+/* ------------------------------
+   Footer
+--------------------------------- */
+footer {
+  margin-top: var(--space-12);
+  padding: var(--space-6) 0 var(--space-8);
+  color: var(--muted);
+  border-top: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+  text-align: center;
+}
+
+/* ------------------------------
+   Utilities
+--------------------------------- */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Tables (not in current HTML, included for completeness) */
+table { width: 100%; border-collapse: collapse; }
+thead th { text-align: left; color: var(--muted); font-weight: var(--fw-medium); }
+td, th { padding: 12px; border-bottom: 1px solid color-mix(in oklab, var(--text) 10%, transparent); }
+tbody tr:nth-child(even) { background: color-mix(in oklab, var(--surface) 92%, transparent); }
+.table-scroll { overflow-x: auto; }
+
+/* ------------------------------
+   Responsive
+--------------------------------- */
+/* Mobile-first defaults above */
+
+@media (min-width: 640px) {
+  nav { padding: 12px; gap: var(--space-3); }
+  .login-form { padding: clamp(24px, 4vw, 40px); }
+  button, input[type="submit"] { min-width: 140px; }
+}
+
+@media (min-width: 1024px) {
+  nav { max-width: min(92vw, var(--container)); }
+  .login-form { max-width: 600px; }
+  body { background-attachment: fixed; }
+}
+
+/* ------------------------------
+   Motion and accessibility
+--------------------------------- */
+:focus-visible {
+  outline: 2px solid transparent;
+  box-shadow: var(--ring);
+  border-radius: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}
+
+/* High-contrast friendly tweaks */
+@media (forced-colors: active) {
+  * { forced-color-adjust: auto; }
+  button, input, select, textarea { border: 1px solid CanvasText; }
+}
+
+/* ------------------------------
+   Print (minimal)
+--------------------------------- */
+@media print {
+  nav, footer { display: none; }
+  body { background: white; color: black; }
+  .login-form { border: 1px solid #000; box-shadow: none; }
+}

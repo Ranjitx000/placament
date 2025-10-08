@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📞 Contact Us - Placement Cell</title>
+
+  <!-- ✅ Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ✅ Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      background: radial-gradient(circle at top left, #1e293b, #0f172a);
+      min-height: 100vh;
+      color: #f1f5f9;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    header, footer {
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="glass m-4 p-4 flex flex-col sm:flex-row items-center justify-between rounded-2xl">
+    <h1 class="text-2xl font-bold text-white flex items-center gap-2">
+      <i data-lucide="phone-call" class="w-6 h-6 text-blue-400"></i>
+      Contact Us
+    </h1>
+    <nav class="flex gap-4 mt-2 sm:mt-0">
+      <a href="{{ url_for('home') }}" class="text-slate-200 hover:text-blue-400 transition">
+        <i data-lucide="home" class="inline w-5 h-5"></i> Home
+      </a>
+      <a href="{{ url_for('admin_login') }}" class="text-slate-200 hover:text-blue-400 transition">
+        <i data-lucide="lock" class="inline w-5 h-5"></i> Admin Login
+      </a>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main class="flex-grow flex items-center justify-center p-6">
+    <div class="glass max-w-3xl w-full p-8 rounded-2xl text-center">
+      <h2 class="text-3xl font-semibold mb-3 text-blue-400">Get in Touch</h2>
+      <p class="text-slate-300 mb-8">We’re here to help! Reach out through any of the following channels.</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+        <!-- Email -->
+        <div class="flex flex-col items-center p-4 glass hover:scale-105 transition">
+          <i data-lucide="mail" class="w-8 h-8 text-blue-400 mb-2"></i>
+          <h3 class="font-semibold text-lg text-white">Email Us</h3>
+          <p><a href="mailto:placement@agcoengineering.com" class="text-blue-300 hover:underline">placement@agcoengineering.com</a></p>
+        </div>
+
+        <!-- Call -->
+        <div class="flex flex-col items-center p-4 glass hover:scale-105 transition">
+          <i data-lucide="phone" class="w-8 h-8 text-green-400 mb-2"></i>
+          <h3 class="font-semibold text-lg text-white">Call Us</h3>
+          <p><a href="tel:+919876543210" class="text-blue-300 hover:underline">+91 9876543210</a></p>
+        </div>
+
+        <!-- Visit -->
+        <div class="flex flex-col items-center p-4 glass hover:scale-105 transition sm:col-span-2">
+          <i data-lucide="map-pin" class="w-8 h-8 text-pink-400 mb-2"></i>
+          <h3 class="font-semibold text-lg text-white">Visit Us</h3>
+          <p>Arvind Gavali College of Engineering, Satara</p>
+        </div>
+      </div>
+
+      <div class="glass p-4 rounded-xl">
+        <h3 class="text-xl font-semibold text-blue-400 mb-2">Office Hours</h3>
+        <p class="text-slate-300">
+          Monday - Friday: 9:00 AM - 5:00 PM<br>
+          Saturday: 9:00 AM - 1:00 PM
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="glass mx-4 mb-4 p-4 text-center text-slate-400 rounded-2xl text-sm">
+    © 2025 Placement Cell | Arvind Gavali College of Engineering, Satara
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
+
